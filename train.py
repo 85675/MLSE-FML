@@ -65,6 +65,7 @@ classifier1 = FML(256, 2).to(device)
 CELoss = nn.CrossEntropyLoss()
 optimizer1 = optim.Adam([
     {'params': net.parameters(), 'lr': 2e-5},
+    {'params': classifier1.parameters(), 'lr': 2e-4},
 ],weight_decay=5e-4)
 
 max_val_acc = 0
@@ -76,6 +77,7 @@ val_loader = ""
 for epoch in range(200):
     print('\nEpoch: %d' % epoch)
     net.train()
+    classifier1.train()
     train_loss = 0
     test_target= []
     test_data_predict = []
