@@ -27,6 +27,7 @@ def load_model(model_name, pretrain=True, require_grad=True):
 
 def test(test_loader,net,classifier1):
     net.eval()
+    classifier1.eval()
     use_cuda = torch.cuda.is_available()
     test_target = []
     test_data_predict = []
