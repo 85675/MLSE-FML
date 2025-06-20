@@ -16,13 +16,13 @@ class MLSE(nn.Module):
             nn.BatchNorm1d(feature_size * 3),
             nn.Linear(feature_size* 3, feature_size),
             nn.BatchNorm1d(feature_size),
-            nn.ReLU(inplace=True),
+            # nn.ReLU(inplace=True),
         )
         self.classifier3 = nn.Sequential(
-            nn.BatchNorm1d(self.num_ftrs),
+            # nn.BatchNorm1d(self.num_ftrs),
             nn.Linear(self.num_ftrs, feature_size),
             nn.BatchNorm1d(feature_size),
-            nn.ReLU(inplace=True),
+            # nn.ReLU(inplace=True),
         )
 
         # Smooth layers
@@ -34,11 +34,11 @@ class MLSE(nn.Module):
         self.toplayer = nn.Conv2d(self.num_ftrs, feature_size, kernel_size=1, stride=1, padding=0)
         self.pclassifier1 = nn.Sequential(
             nn.BatchNorm1d(feature_size),
-            nn.ReLU(inplace=True),
+            # nn.ReLU(inplace=True),
         )
         self.pclassifier2 = nn.Sequential(
             nn.BatchNorm1d(feature_size),
-            nn.ReLU(inplace=True),
+            # nn.ReLU(inplace=True),
         )
 
     def _upsample_add(self, x, y):
